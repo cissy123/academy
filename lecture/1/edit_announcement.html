@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>兴大ecampus</title>
+<link href="../../css/ecampus.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap.css">
+<link href="../../css/bootstrap.min.css" rel="stylesheet">
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/menu.js"></script>
+</head>
+<body>
+
+
+<div style="float: left;">
+<select onchange=document.execCommand('FontSize',false,this.value)>
+<option value=3>3号字</option>
+<option value=4>4号字</option>
+<option value=5>5号字</option>
+<option value=6>6号字</option>
+<option value=7>7号字</option>
+</select> 
+<input class="btn btn-info" type=button value="红色" onclick=document.execCommand('ForeColor',false,'#ff0000')>
+<input class="btn btn-info" type=button value="绿色" onclick=document.execCommand('ForeColor',false,'#00ff00')>
+<input class="btn btn-info" type=button value="蓝色" onclick=document.execCommand('ForeColor',false,'#0000ff')>
+<input class="btn btn-info" type=button value="左对齐"
+onclick="document.execCommand('JustifyLeft')"> 
+<input class="btn btn-info" type=button value="居中" onclick=document.execCommand('JustifyCenter')>
+<input class="btn btn-info" type=button value="右对齐" onclick=document.execCommand('JustifyRight')>
+</div>
+
+
+<div id="editArea" contenteditable style="height: 200px; width: 450px; border: 1px solid; overflow-y: auto;" >
+</div>
+
+<p>
+
+
+<form method="post" action="new_announcement.php">
+<div>设置过期天数：<input type="text" name="days" ></input>天</div>
+<input style="visibility: hidden;" id="htmlsource" name="htmlsource"></input>
+<input  class="btn btn-lg btn-warning btn-block" style="width: 100px;" type="button" value="保存" onclick='htmlsource.value=editArea.innerHTML;'>
+<input  class="btn btn-lg btn-warning btn-block" style="width: 100px;" type='submit' name="submit" value="提交"></input> 
+</form>
+</p>
+
+
+
+</body>
+</html>
